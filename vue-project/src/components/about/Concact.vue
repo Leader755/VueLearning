@@ -8,6 +8,6 @@
            <router-link :to="{name:'phoneNumber'}">电话</router-link>
            <router-link :to="{name:'personName'}">联系人</router-link>
            <router-view></router-view>
-       </div>
+       </div>  
     </div>
 </template>
