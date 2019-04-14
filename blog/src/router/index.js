@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import AddBlog from '@/components/AddBlog'
 import ShowBlogs from '@/components/ShowBlogs'
 import SingleBlog from '@/components/SingleBlog'
+import EditBlog from '@/components/EditBlog'
 
 // import HelloWorld from '@/components/HelloWorld'
 
@@ -21,6 +22,10 @@ export default new Router({
     path: '/blog/:id',
     name: 'SingleBlog',
     component: SingleBlog
+  }, {
+    path: '/edit/:id',
+    name: 'EditBlog',
+    component: EditBlog
   }
 
   ],
