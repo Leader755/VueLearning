@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <!-- vue-app根容器 -->
+    <div id="vue-app">
+        <div>{{name}}</div>
+        <p>{{job}}</p>
+        <p>{{greet('night')}}</p>
+        <input type="text" v-bind:value="job">
+        <a v-bind:href="website">网站开发</a>
+        <p v-html="websitetag"></p>
+    </div>
+    <script src="app.js"></script>
+    <!-- <script>
+        //实例化对象
+        new Vue({
+            el: '#vue-app', //=需要获取的元素，一定是html中的根容器元素
+            data: { //用于数据的存储
+                name: 'Mr彭',
+                job: 'web开发',
+            },
+            methods: {
+                greet: function(time) { //方法中直接用this指针调用data中的内容
+                    return 'good ' + time + " " + this.name + "!"
+                },
+            },
+        })
+    </script> -->
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        #canvas {
+            height: 60px;
+            height: 300px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- vue-app根容器 -->
+    <div id="vue-app">
+        <h1>event</h1>
+        <button @click="age++">加一岁</button>
+        <button v-on:click="age--">减一岁</button>
+        <p>My age is {{age}}</p>
+        <button v-on:dblclick="add(10)">加</button>
+        <button v-on:dblclick="reduce(10)">减</button>
+        <div id="canvas" v-on:mousemove="updata">
+            {{x}},{{y}}
+        </div>
+    </div>
+    <script>
+        //实例化对象
+        new Vue({
+            el: '#vue-app',
+            data: {
+                age: '10',
+                x: 0,
+                y: 0
+            },
+            methods: {
+                add: function(inc) {
+
+                    return this.age += inc;
+                },
+                reduce: function(dec) {
+                    return this.age -= dec;
+                },
+                updata: function(event) {
+                    console.log(event)
+                    this.x = event.offsetX;
+                    this.y = event.offsetY;
+                },
+            },
+        })
+
+        //键盘事件，点击事件，鼠标事件
+        //使用双括号时调用方法，必须要给括号
+        //在事件中，可以给括号也可一不给括号
+    </script>
+</body>
+
+</html>

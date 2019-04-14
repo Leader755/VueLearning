@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- vue-app根容器 -->
+    <div id="vue-app">
+        <h1>input/select/textarea</h1>
+        <!-- 使用 ref 属性来标识一个元素 -->
+        <input type="text" ref="name" @keyup="logname"><span>{{name}}</span>
+        <input type="text" ref="age" @keyup="logage"><span>{{age}}</span>
+        <!-- v-model  -->
+        <input type="text" v-model="name1"><span>{{name1}}</span>
+        <input type="text" v-model="age1"><span>{{age1}}</span>
+    </div>
+    <script>
+        //实例化对象
+        new Vue({
+            el: '#vue-app',
+            data: {
+                name: 'Mr彭',
+                age: '20',
+                age1: 25,
+                name1: 'Mr吴'
+            },
+            methods: {
+                logname: function() {
+                    console.log(this.$refs.name.value);
+                    this.name = this.$refs.name.value;
+                },
+                logage: function() {
+                    this.age = this.$refs.age.value;
+                },
+            },
+        })
+    </script>
+</body>
+
+</html>

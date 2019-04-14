@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- vue-app根容器 -->
+    <div id="vue-app">
+        <h1>conmputed的计算属性</h1>
+        <button v-on:click="a++">a++</button>
+        <button v-on:click="b++">b++</button>
+        <p>a{{a}}</p>
+        <p>b{{b}}</p>
+        <p>age+a={{addA}}</p>
+        <p>age+b={{addB}}</p>
+    </div>
+    <script>
+        //实例化对象
+        new Vue({
+            el: '#vue-app',
+            data: {
+                a: 1,
+                b: 1,
+                age: 20,
+            },
+            methods: { //methods中方法一旦触发，就会执行所有的方法（消耗性能）需要带上括号
+                addA: function() {
+                    console.log('Add to A');
+                    return this.a + this.age
+                },
+                addB: function() {
+                    console.log('Add to B');
+                    return this.b + this.age;
+                },
+
+            },
+            computed: { //computed只会调用当前方法（性能优化）变化幅度较大用计算属性，不需要括号
+                addA: function() {
+                    console.log('Add to A');
+                    return this.a + this.age
+                },
+                addB: function() {
+                    console.log('Add to B');
+                    return this.b + this.age;
+                },
+            },
+        })
+    </script>
+</body>
+
+</html>

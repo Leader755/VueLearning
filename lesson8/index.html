@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- vue-app根容器 -->
+    <div id="vue-app">
+        <h1>v-for 循环</h1>
+
+
+        <!-- 数组遍历 -->
+
+        <!-- 
+        li渲染会做一个优化，不会造成重复的元素。 
+        其他的渲染如div渲染，会造成重复的元素 
+        可以用template代替div，进行优化
+        -->
+        <!-- <ul>
+            <li v-for="charter in charcters">
+                {{charter}}
+            </li>
+        </ul> -->
+
+        <ul>
+            <li v-for="(user,index) in users">
+                <p>{{index+1}}--{{user.name}}</p>
+                <h3>{{user.age}}</h3>
+            </li>
+        </ul>
+
+        <template v-for="(user,index) in users">
+            <div v-for="(val,key) in user">
+                <p>{{key}}---{{val}}</p>
+            </div>
+        </template>
+
+    </div>
+    <script>
+        new Vue({
+            el: '#vue-app',
+            data: {
+                charcters: ['Mario', 'luffy', 'yoush'],
+                users: [{
+                    name: 'herry',
+                    age: 20
+                }, {
+                    name: 'butty',
+                    age: 25
+                }, {
+                    name: 'emily',
+                    age: 12
+                }]
+            },
+            methods: {
+
+            },
+            computed: {
+
+            },
+
+        })
+    </script>
+</body>
+
+</html>

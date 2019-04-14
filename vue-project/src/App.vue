@@ -28,13 +28,12 @@
 import Header from './components/Header'
 export default {
   name: 'app',
-  data () {
-    return {
-     
-    }
-  },
   components:{
      "app-header":Header
+  },
+  created(){
+    
+
   }
 }
 </script>

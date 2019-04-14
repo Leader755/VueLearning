@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        span {
+            /* background: red;
+            dispaly: inline-block; */
+            color: #000;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        
+        .changeColor {
+            background: green;
+        }
+        
+        .changeLength span::after {
+            content: 'length';
+            margin-left: 10px;
+        }
+        
+        .red {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- vue-app根容器 -->
+    <div id="vue-app">
+        <h1>v-if 条件</h1>
+        <button v-on:click="error=!error">toggle erroe</button>
+        <button v-on:click="success=!success">toggle success</button>
+
+        <p v-if="error">网络连接错误</p>
+        <p v-else-if="success">网络连接成功</p>
+        <p v-else>网络连接</p>
+
+        <p v-show="error">网络连接失败</p>
+        <p v-show="success">网络连接成功</p>
+
+    </div>
+    <script>
+        new Vue({
+            el: '#vue-app',
+            data: {
+                error: false,
+                success: false,
+            },
+            methods: {
+
+            },
+            computed: {
+
+            },
+
+        })
+    </script>
+</body>
+
+</html>

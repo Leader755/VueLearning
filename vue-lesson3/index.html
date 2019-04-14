@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        #canvas {
+            height: 60px;
+            height: 300px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- vue-app根容器 -->
+    <div id="vue-app">
+        <a v-on:click.prevent="" href="http://www.leader755.com">个人博客</a>
+        <div id="canvas" @mousemove="update">
+            {{x}},{{y}}
+            <span @mousemove.stop="">
+                stop-moving
+            </span>
+
+        </div>
+    </div>
+    <script>
+        //实例化对象
+        new Vue({
+            el: '#vue-app',
+            data: {
+                x: 0,
+                y: 0,
+
+            },
+            methods: {
+                update: function(event) {
+                    console.log(event);
+                    this.x = event.offsetX;
+                    this.y = event.offsetY;
+                },
+                stopmoving: function(event) {
+                    event.stopPropagation(); //阻止冒泡事件
+
+                },
+            },
+        })
+    </script>
+</body>
+
+</html>
